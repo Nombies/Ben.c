@@ -19,7 +19,6 @@
  */
 
 #include "RgbImage.h"
-#include <iostream>
 
 #ifndef RGBIMAGE_DONT_USE_OPENGL
 
@@ -70,7 +69,7 @@ bool RgbImage::LoadBmpFile( const char* filename )
         ErrorCode = OpenError;
         return false;
     }
-	int bitsPerPixel;
+    
     bool fileFormatOK = false;
     int bChar = fgetc( infile );
     int mChar = fgetc( infile );
@@ -79,11 +78,11 @@ bool RgbImage::LoadBmpFile( const char* filename )
         NumCols = readLong( infile );
         NumRows = readLong( infile );
         skipChars( infile, 2 );               // Skip one field
-        bitsPerPixel = readShort( infile );
+        int bitsPerPixel = readShort( infile );
         skipChars( infile, 4+4+4+4+4+4 );      // Skip 6 more fields
         
         if ( NumCols>0 && NumCols<=100000 && NumRows>0 && NumRows<=100000
-            && (bitsPerPixel==24|| bitsPerPixel == 32) && !feof(infile) ) {
+            && bitsPerPixel==24 && !feof(infile) ) {
             fileFormatOK = true;
         }
     }
@@ -110,22 +109,16 @@ bool RgbImage::LoadBmpFile( const char* filename )
     for ( int i=0; i<NumRows; i++ ) {
         int j;
         for ( j=0; j<NumCols; j++ ) {
-            if(bitsPerPixel==32) *(cPtr + 3) = fgetc(infile);
-			*(cPtr+2) = fgetc( infile );   // Blue color value
+            *(cPtr+2) = fgetc( infile );   // Blue color value
             *(cPtr+1) = fgetc( infile );   // Green color value
             *cPtr = fgetc( infile );      // Red color value
             cPtr += 3;
-			if (bitsPerPixel == 32)cPtr++;
         }
         int k=3*NumCols;               // Num bytes already read
-		if (bitsPerPixel == 32) k = 4 * NumCols;
-		/*
         for ( ; k<GetNumBytesPerRow(); k++ ) {
             fgetc( infile );            // Read and ignore padding;
-			std::cout << "gothere"<<std::endl;
-			*(cPtr++) = 0;
+            *(cPtr++) = 0;
         }
-		*/
     }
     if ( feof( infile ) ) {
         fprintf( stderr, "Premature end of file: %s.\n", filename );

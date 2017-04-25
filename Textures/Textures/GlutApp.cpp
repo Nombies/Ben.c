@@ -16,8 +16,6 @@ GlutApp::GlutApp(const char* label, int x, int y, int w, int h) {
     glEnable (GL_DEPTH_TEST);
     glEnable (GL_POINT_SMOOTH);
     glEnable (GL_LINE_SMOOTH);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	glEnable(GL_BLEND);
     glHint (GL_LINE_SMOOTH_HINT, GL_NICEST);
     glHint (GL_POINT_SMOOTH_HINT, GL_NICEST);
     glPointSize (4);

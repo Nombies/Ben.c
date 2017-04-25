@@ -1,34 +1,12 @@
 #include "App.h"
 
-GLuint loadTextureA(const char *filename) {
-	GLuint texture_id;
-	glClearColor(0.0, 0.0, 0.0, 0.0);
-	glShadeModel(GL_FLAT);
-	glEnable(GL_DEPTH_TEST);
-
-	RgbImage theTexMap(filename);
-
-	// Pixel alignment: each row is word aligned (aligned to a 4 byte boundary)
-	//    Therefore, no need to call glPixelStore( GL_UNPACK_ALIGNMENT, ... );
-
-
-	glGenTextures(1, &texture_id);
-	glBindTexture(GL_TEXTURE_2D, texture_id);
-
-	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, theTexMap.GetNumCols(), theTexMap.GetNumRows(),
-		GL_RGBA, GL_UNSIGNED_BYTE, theTexMap.ImageData());
-
-	return texture_id;
-
-}
-
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     mx = 0.0;
     my = 0.0;
     
 	#if defined WIN32
-    monalisa = loadTextureA("..\\monalisa.bmp");
+    monalisa = loadTexture("..\\monalisa.bmp");
     wall = loadTexture("..\\wall.bmp");
 	#else
 	monalisa = loadTexture("monalisa.bmp");
@@ -66,8 +44,6 @@ GLuint App::loadTexture(const char *filename) {
     
 }
 
-
-
 void App::draw() {
 
     // Clear the screen
@@ -81,13 +57,13 @@ void App::draw() {
     glLoadIdentity();
     
     // Set Color
-    glColor4d(1.0, 1.0, 1.0,1.0);
+    glColor3d(1.0, 1.0, 1.0);
     
 
     glBindTexture( GL_TEXTURE_2D, monalisa );
     painting->draw();
     
-	glColor3d(1.0, 1.0, 1.0);
+    
     glBindTexture( GL_TEXTURE_2D, wall );
     background->draw();
     
