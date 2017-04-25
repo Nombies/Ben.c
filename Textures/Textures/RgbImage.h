@@ -44,7 +44,7 @@ public:
     long GetNumRows() const { return NumRows; }
     long GetNumCols() const { return NumCols; }
     // Rows are word aligned
-    long GetNumBytesPerRow() const { return ((3*NumCols+3)>>2)<<2; }
+    long GetNumBytesPerRow() const { return ((4*NumCols+4)>>2)<<2; }
     const void* ImageData() const { return (void*)ImagePtr; }
     
     const unsigned char* GetRgbPixel( long row, long col ) const;
