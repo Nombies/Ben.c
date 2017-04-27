@@ -4,6 +4,7 @@
 #include "GlutApp.h"
 #include "RgbImage.h"
 #include "TexRect.hpp"
+#include <vector>
 
 class App: public GlutApp {
     // Maintain app state here
@@ -20,13 +21,7 @@ public:
     void mouseDrag(float x, float y);
     
     GLuint loadTexture(const char* filename);
-    
-    GLuint monalisa;
-    GLuint wall;
-    
-    
-    TexRect* painting;
-    TexRect* background;
+	void idle();
 };
 
 #endif

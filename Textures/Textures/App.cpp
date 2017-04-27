@@ -1,20 +1,32 @@
 #include "App.h"
+#include "Monkey.h"
+#include "Powerup.h"
+#include "Trampoline.h"
+#include "Fruit.h"
+#include <string>
+
+using namespace std;
+
+TexRect* background;
+Monkey* monkey;
+vector<TexRect*> fruits;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
     mx = 0.0;
     my = 0.0;
     
-	#if defined WIN32
-    monalisa = loadTexture("..\\monalisa.bmp");
-    wall = loadTexture("..\\wall.bmp");
-	#else
-	monalisa = loadTexture("monalisa.bmp");
-	wall = loadTexture("wall.bmp");
-	#endif
+	GLuint monkeyTexture = loadTexture("..//monalisa.bmp");
+	GLuint trampolineTexture = loadTexture("..//monalisa.bmp");
+	GLuint backgroundTexture = loadTexture("..//wall.bmp");
+
+	background = new TexRect(0,0,2,2,backgroundTexture);
+	monkey = new Monkey(0,-0.5,.25,.35,0,0.0005,monkeyTexture);
     
-    background = new TexRect(-1, 1, 2, 2);
-    painting = new TexRect(0, 0.67, 0.5, 0.67);
+	for (int i = 0; i < 5;i++) {
+		fruits.push_back(new Fruit((-1+0.25*i),0.5,0.1,0.1,0,0,monkeyTexture,NULL));
+	}
+
 }
 
 
@@ -41,7 +53,14 @@ GLuint App::loadTexture(const char *filename) {
                       GL_RGB, GL_UNSIGNED_BYTE, theTexMap.ImageData() );
     
     return texture_id;
-    
+}
+
+void App::idle() {
+	monkey->update();
+
+
+
+	draw();
 }
 
 void App::draw() {
@@ -59,14 +78,12 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
+	monkey->draw();
+	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
+		(*i)->draw();
+	}
+	background->draw();
 
-    glBindTexture( GL_TEXTURE_2D, monalisa );
-    painting->draw();
-    
-    
-    glBindTexture( GL_TEXTURE_2D, wall );
-    background->draw();
-    
     
     glDisable(GL_TEXTURE_2D);
     

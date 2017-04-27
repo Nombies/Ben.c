@@ -1,15 +1,9 @@
 ﻿  App.cpp
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(17): warning C4305: 'argument': truncation from 'double' to 'float'
-  app_main.cpp
-  GlutApp.cpp
-c:\users\kraus\documents\ben.c\textures\textures\glutapp.cpp(42): warning C4305: '-=': truncation from 'double' to 'float'
-  RgbImage.cpp
-c:\users\kraus\documents\ben.c\textures\textures\rgbimage.cpp(66): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
-c:\users\kraus\documents\ben.c\textures\textures\rgbimage.cpp(185): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\stdio.h(205): note: see declaration of 'fopen'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   TexRect.cpp
+  app_main.cpp
   Generating Code...
-App.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)

@@ -122,9 +122,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\App.h" />
+    <ClInclude Include="..\Fruit.h" />
     <ClInclude Include="..\GlutApp.h" />
+    <ClInclude Include="..\Monkey.h" />
+    <ClInclude Include="..\Powerup.h" />
     <ClInclude Include="..\RgbImage.h" />
     <ClInclude Include="..\TexRect.hpp" />
+    <ClInclude Include="..\Trampoline.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
