@@ -13,8 +13,10 @@ vector<TexRect*> fruits;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
-    mx = 0.0;
-    my = 0.0;
+	mx = -0.1;
+	my = -0.9;
+	width = 0.3;
+	height = 0.05;
     
 	GLuint monkeyTexture = loadTexture("..//monalisa.bmp");
 	GLuint trampolineTexture = loadTexture("..//monalisa.bmp");
@@ -96,6 +98,25 @@ void App::draw() {
     // Swap the buffers to see the result of what we drew
     glFlush();
     glutSwapBuffers();
+}
+
+void App::specialKeyPress(int key) {
+	switch (key) {
+	case GLUT_KEY_LEFT:
+		mx -= 0.05;
+		break;
+	case GLUT_KEY_RIGHT:
+		mx += 0.05;
+		break;
+	}
+	if (mx < -1) {
+		mx = -1;
+	}
+	if (mx + width > 1) {
+		mx = 1 - width;
+	}
+	//Sleep();
+	glutPostRedisplay();
 }
 
 void App::mouseDown(float x, float y){
