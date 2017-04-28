@@ -24,7 +24,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	monkey = new Monkey(0,-0.5,.25,.35,0,0.0005,monkeyTexture);
     
 	for (int i = 0; i < 5;i++) {
-		fruits.push_back(new Fruit((-1+0.25*i),0.5,0.1,0.1,0,0,monkeyTexture,NULL));
+		fruits.push_back(new Fruit((-.5+0.25*i),0.5,0.1,0.1,0,0,monkeyTexture,NULL));
 	}
 
 }
@@ -57,7 +57,11 @@ GLuint App::loadTexture(const char *filename) {
 
 void App::idle() {
 	monkey->update();
-
+	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
+		if (monkey->contains(*(TexRect*)(*i))) {
+			monkey->bounce(**i);
+		}
+	}
 
 
 	draw();
@@ -78,10 +82,11 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
-	monkey->draw();
+
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		(*i)->draw();
 	}
+	monkey->draw();
 	background->draw();
 
     

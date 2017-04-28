@@ -59,11 +59,11 @@ public:
         glDisable(GL_TEXTURE_2D);
     }
 
-	int contains(float X, float Y) {
+	virtual int contains(float X, float Y) {
 		return X >= x - w/2&&X <= x + w/2&&Y <= y+h/2&&Y >= y - h/2;
 	}
 
-	int contains(TexRect v) {
+	virtual int contains(TexRect v) {
 		return v.x >= x - w / 2 && v.x <= x + w / 2 && v.y <= y + h / 2 && v.y >= y - h / 2;
 	}
 

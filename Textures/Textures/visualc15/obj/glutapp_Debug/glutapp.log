@@ -2,8 +2,6 @@
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  TexRect.cpp
-  app_main.cpp
-  Generating Code...
+App.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
   glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
