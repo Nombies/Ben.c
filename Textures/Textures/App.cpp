@@ -18,9 +18,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	width = 0.3;
 	height = 0.05;
     
-	GLuint monkeyTexture = loadTexture("..//monalisa.bmp");
-	GLuint trampolineTexture = loadTexture("..//monalisa.bmp");
-	GLuint backgroundTexture = loadTexture("..//wall.bmp");
+	GLuint monkeyTexture = loadTexture("..//Ape.bmp");
+	GLuint trampolineTexture = loadTexture("..//trampoline_1.bmp");
+	GLuint backgroundTexture = loadTexture("..//background.bmp");
 
 	background = new TexRect(0,0,2,2,backgroundTexture);
 	monkey = new Monkey(0,-0.5,.25,.35,0,0.0005,monkeyTexture);
