@@ -20,13 +20,13 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	height = 0.05;
     
 	#if defined WIN32
-	GLuint monkeyTexture = loadTexture("..//monalisa.bmp");
-	GLuint trampolineTexture = loadTexture("..//monalisa.bmp");
-	GLuint backgroundTexture = loadTexture("..//wall.bmp");
+	GLuint monkeyTexture = loadTexture("..//Ape.bmp");
+	GLuint trampolineTexture = loadTexture("..//trampoline_1.bmp");
+	GLuint backgroundTexture = loadTexture("..//background.bmp");
 	#else
-	GLuint monkeyTexture = loadTexture("monalisa.bmp");
-	GLuint trampolineTexture = loadTexture("monalisa.bmp");
-	GLuint backgroundTexture = loadTexture("wall.bmp");
+	GLuint monkeyTexture = loadTexture("Ape.bmp");
+	GLuint trampolineTexture = loadTexture("trampoline_1.bmp");
+	GLuint backgroundTexture = loadTexture("background.bmp");
 	#endif
 	background = new TexRect(-1,1,2,2,backgroundTexture);
 	monkey = new Monkey(0,-0.5,.25,.35, 0.0001,0.0005,monkeyTexture);
