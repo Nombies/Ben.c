@@ -1,12 +1,16 @@
 ﻿  App.cpp
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(16): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(17): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(18): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(19): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(29): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(29): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(106): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(109): warning C4305: '+=': truncation from 'double' to 'float'
-  glutapp.vcxproj -> C:\Users\Authorized User\Documents\GitHub\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(17): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(18): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(19): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(31): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(112): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(115): warning C4305: '+=': truncation from 'double' to 'float'
+  TexRect.cpp
+  app_main.cpp
+  Generating Code...
+  glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)

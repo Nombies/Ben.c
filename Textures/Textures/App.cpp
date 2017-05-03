@@ -9,6 +9,7 @@ using namespace std;
 
 TexRect* background;
 Monkey* monkey;
+Trampoline* trampoline;
 vector<TexRect*> fruits;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
@@ -18,13 +19,19 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	width = 0.3;
 	height = 0.05;
     
+	#if defined WIN32
 	GLuint monkeyTexture = loadTexture("..//monalisa.bmp");
 	GLuint trampolineTexture = loadTexture("..//monalisa.bmp");
 	GLuint backgroundTexture = loadTexture("..//wall.bmp");
+	#else
+	GLuint monkeyTexture = loadTexture("monalisa.bmp");
+	GLuint trampolineTexture = loadTexture("monalisa.bmp");
+	GLuint backgroundTexture = loadTexture("wall.bmp");
+	#endif
+	background = new TexRect(-1,1,2,2,backgroundTexture);
+	monkey = new Monkey(0,-0.5,.25,.35, 0.0001,0.0005,monkeyTexture);
+	trampoline = new Trampoline(mx,my,0.3,0.05,monkeyTexture);
 
-	background = new TexRect(0,0,2,2,backgroundTexture);
-	monkey = new Monkey(0,-0.5,.25,.35,0,0.0005,monkeyTexture);
-    
 	for (int i = 0; i < 5;i++) {
 		fruits.push_back(new Fruit((-.5+0.25*i),0.5,0.1,0.1,0,0,monkeyTexture,NULL));
 	}
@@ -58,13 +65,16 @@ GLuint App::loadTexture(const char *filename) {
 }
 
 void App::idle() {
+	trampoline->moveTo(mx,my);
 	monkey->update();
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		if (monkey->contains(*(TexRect*)(*i))) {
 			monkey->bounce(**i);
 		}
 	}
-
+	if (monkey->contains(*trampoline) ){
+		monkey->bounce(*trampoline);
+	}
 
 	draw();
 }
@@ -89,6 +99,7 @@ void App::draw() {
 		(*i)->draw();
 	}
 	monkey->draw();
+	trampoline->draw();
 	background->draw();
 
     
@@ -111,12 +122,12 @@ void App::specialKeyPress(int key) {
 	}
 	if (mx < -1) {
 		mx = -1;
-	}
+	}else 
 	if (mx + width > 1) {
-		mx = 1 - width;
+		mx = 1 - trampoline->w;
 	}
 	//Sleep();
-	glutPostRedisplay();
+	//glutPostRedisplay();
 }
 
 void App::mouseDown(float x, float y){

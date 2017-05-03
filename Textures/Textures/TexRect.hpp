@@ -9,7 +9,7 @@
 #ifndef TexRect_hpp
 #define TexRect_hpp
 #include "RgbImage.h"
-
+#include <algorithm>
 #if defined WIN32
 #include <freeglut.h>
 #elif defined __APPLE__
@@ -40,31 +40,36 @@ public:
         glEnable(GL_TEXTURE_2D);
         glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
         
-        glBegin(GL_QUADS);
-        
-        glTexCoord2f(0.0, 0.0);
-        glVertex2f(x-w/2, y - h/2);
-        
-        glTexCoord2f(0.0, 1.0);
-        glVertex2f(x-w/2, y+h/2);
-        
-        glTexCoord2f(1.0, 1.0);
-        glVertex2f(x+w/2, y+h/2);
-        
-        glTexCoord2f(1.0, 0.0);
-        glVertex2f(x+w/2, y - h/2);
-        
-        glEnd();
+		glBegin(GL_QUADS);
+
+		glTexCoord2f(0.0, 0.0);
+		glVertex2f(x, y - h);
+
+		glTexCoord2f(0.0, 1.0);
+		glVertex2f(x, y);
+
+		glTexCoord2f(1.0, 1.0);
+		glVertex2f(x + w, y);
+
+		glTexCoord2f(1.0, 0.0);
+		glVertex2f(x + w, y - h);
+
+		glEnd();
         
         glDisable(GL_TEXTURE_2D);
     }
 
+	//bool IsInBounds(int value, int low, int high) {
+	//	return !(value <= low) && (value <= high);
+	//}
+
 	virtual int contains(float X, float Y) {
-		return X >= x - w/2&&X <= x + w/2&&Y <= y+h/2&&Y >= y - h/2;
+		return X >= x&&X <= x + w&&Y <= y&&Y >= y - h;
 	}
 
-	virtual int contains(TexRect v) {
-		return v.x >= x - w / 2 && v.x <= x + w / 2 && v.y <= y + h / 2 && v.y >= y - h / 2;
+	virtual int contains(TexRect b) {
+		return x < b.x + b.w && b.x + b.w > x &&
+			y > b.y - b.h && y - h < b.y;
 	}
 
 	GLuint loadTexture(const char *filename) {

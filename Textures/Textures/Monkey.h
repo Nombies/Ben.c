@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "TexRect.hpp"
 #include <string.h>
+#include <cmath>
 
 class Monkey : public TexRect
 {
@@ -17,11 +18,9 @@ public:
 		y += vy;
 	} //each gme tick, call this to run the physics on the monkey ball
 	
-	void bounce(TexRect b) {
-		if (x<b.x+b.w/2&& x>b.x - b.w / 2) {
-			vy *= -1;
-		}if (y<b.y - b.h / 2 && y>b.y + b.h / 2) {
-			vy *= -1;
+	void bounce(TexRect& b) {
+		if (this->y < b.y) {
+			vy = abs(vy)*-1;
 		}
 	} //call this if the monkey colides with b
 };
