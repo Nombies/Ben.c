@@ -21,4 +21,15 @@ public:
 	void collect(); //call this if the trampoline colides with this
 };
 
+/*boolean Random(GLuint chance) {
+	GLuint random = rand() % chance;
+	return random == 0;
+}
+
+void powerUps(App &b) {
+	if (Random(20)) {
+		this->powerUps.push_back(PowerUp("pad-size-increase", glm::vec3(1.0f, .06f, 0.4f), 0.0f, block.postion, tex_pass));
+	}
+} */
+
 #endif // !pwrup
