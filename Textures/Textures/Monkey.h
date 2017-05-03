@@ -2,6 +2,9 @@
 #include "TexRect.hpp"
 #include <string.h>
 #include <cmath>
+#include <iostream>
+
+using namespace std;
 
 class Monkey : public TexRect
 {
@@ -21,7 +24,14 @@ public:
 	void bounce(TexRect& b) {
 		if (this->y < b.y) {
 			vy = abs(vy)*-1;
+		}else if (this->y > b.y) {
+			vy = abs(vy);
+		}else if (this->x<b.x) {
+			vx = abs(vx);
+		}else if (this->x>b.x) {
+			vx = abs(vx)*-1;
 		}
+		cout << "bounce" << endl;
 	} //call this if the monkey colides with b
 };
 

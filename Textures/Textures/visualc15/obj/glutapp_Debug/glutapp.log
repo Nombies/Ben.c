@@ -5,11 +5,9 @@ c:\users\kraus\documents\ben.c\textures\textures\app.cpp(19): warning C4305: '='
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(32): warning C4305: 'argument': truncation from 'double' to 'float'
 c:\users\kraus\documents\ben.c\textures\textures\app.cpp(33): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(37): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(118): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(121): warning C4305: '+=': truncation from 'double' to 'float'
-  LINK : obj\glutapp_Debug\glutapp.exe not found or not built by the last incremental link; performing full link
-App.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(36): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(36): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(117): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(120): warning C4305: '+=': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
