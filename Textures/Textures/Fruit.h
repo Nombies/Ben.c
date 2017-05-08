@@ -10,6 +10,6 @@ public:
 	Fruit(float x, float y, float w, float h, float vX, float vY, GLuint& texture, Powerup* P) : TexRect(x, y, w, h, texture) {
 		p = P;
 	}
-	void hit(); //call this if the monkey colides with this fruit
+	void hit() {}; //call this if the monkey colides with this fruit
 };
 

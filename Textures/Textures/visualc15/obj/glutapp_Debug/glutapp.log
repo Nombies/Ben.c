@@ -1,18 +1,18 @@
-﻿Build started 5/8/2017 1:39:39 PM.
+﻿Build started 5/8/2017 2:22:55 PM.
      1>Project "F:\Ben.c\Textures\Textures\visualc15\glutapp.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          F:\MSVS\VC\bin\CL.exe /c /I../ /I../freeglut /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"obj\glutapp_Debug\\" /Fd"obj\glutapp_Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ..\App.cpp
          App.cpp
-     1>f:\ben.c\textures\textures\app.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
-     1>f:\ben.c\textures\textures\app.cpp(21): warning C4305: '=': truncation from 'double' to 'float'
      1>f:\ben.c\textures\textures\app.cpp(22): warning C4305: '=': truncation from 'double' to 'float'
      1>f:\ben.c\textures\textures\app.cpp(23): warning C4305: '=': truncation from 'double' to 'float'
-     1>f:\ben.c\textures\textures\app.cpp(53): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>f:\ben.c\textures\textures\app.cpp(54): warning C4305: 'argument': truncation from 'double' to 'float'
-     1>f:\ben.c\textures\textures\app.cpp(65): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-     1>f:\ben.c\textures\textures\app.cpp(105): warning C4018: '<': signed/unsigned mismatch
-     1>f:\ben.c\textures\textures\app.cpp(160): warning C4305: '-=': truncation from 'double' to 'float'
-     1>f:\ben.c\textures\textures\app.cpp(163): warning C4305: '+=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(24): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(25): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(55): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(56): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>f:\ben.c\textures\textures\app.cpp(111): warning C4018: '<': signed/unsigned mismatch
+     1>f:\ben.c\textures\textures\app.cpp(168): warning C4305: '-=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(171): warning C4305: '+=': truncation from 'double' to 'float'
        Link:
          F:\MSVS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"obj\glutapp_Debug\glutapp.exe" /NOLOGO ../freeglut/freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"obj\glutapp_Debug\glutapp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"obj\glutapp_Debug\glutapp.lib" /MACHINE:X86 /SAFESEH obj\glutapp_Debug\App.obj
          obj\glutapp_Debug\app_main.obj
@@ -24,4 +24,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.82
+Time Elapsed 00:00:01.08

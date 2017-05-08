@@ -8,6 +8,8 @@
 
 using namespace std;
 
+bool play = true;
+int score = 0;
 int lives = 3;
 TexRect* background;
 Monkey* monkey;
@@ -94,30 +96,36 @@ GLuint App::loadTexture(const char *filename) {
 }
 
 void App::idle() {
-	trampoline->moveTo(mx,my);
-	monkey->update();
-	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
-		if (monkey->contains(*(TexRect*)(*i))) {
-			monkey->bounce(**i);
-			((Fruit*)(*i))->markdel = 1;
+	if (play) {
+		trampoline->moveTo(mx, my);
+		monkey->update();
+		for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
+			if (monkey->contains(*(TexRect*)(*i))) {
+				monkey->bounce(**i);
+				((Fruit*)(*i))->markdel = 1;
+				((Fruit*)(*i))->hit();
+				score += 100;
+				break;
+			}
+		}
+		for (int i = 0; i < fruits.size(); i++) {
+			if (((Fruit*)fruits[i])->markdel) {
+				fruits.erase(fruits.begin() + i);
+			}
+		}
+		if (monkey->contains(*trampoline)) {
+			monkey->bounce(*trampoline);
+		}
+		else if (monkey->x<-1) {
+			monkey->vx = abs(monkey->vx);
+		}
+		else if (monkey->x > (1 - monkey->w)) {
+			monkey->vx = abs(monkey->vx)*-1;
+		}
+		else if (monkey->y > 1) {
+			monkey->vy = abs(monkey->vy)*-1;
 		}
 	}
-	for (int i = 0; i < fruits.size();i++) {
-		if (((Fruit*)fruits[i])->markdel){
-			fruits.erase(fruits.begin()+i);
-		}
-	}
-	if (monkey->contains(*trampoline) ){
-		monkey->bounce(*trampoline);
-	}
-	else if (monkey->x<-1) {
-		monkey->vx = abs(monkey->vx);
-	}else if (monkey->x>(1-monkey->w)) {
-		monkey->vx = abs(monkey->vx)*-1;
-	}else if (monkey->y>1) {
-		monkey->vy = abs(monkey->vy)*-1;
-	}
-
 
 	draw();
 }
@@ -195,5 +203,9 @@ void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
         exit(0);
-    }
+    }if (key == 'p') {
+		cout << "paused" << endl;
+		play = !play;
+	}
+	cout << key << endl;
 }

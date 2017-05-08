@@ -27,7 +27,7 @@ public:
 		bool u = y>b.y-b.h && y<b.y;
 		bool d = y-h<b.y && y-h > b.y-b.h;
 
-		if ((y>b.y||y-h<b.y-b.h) && (u||d)) {
+		if ((y>b.y||y-h<b.y-b.h) && (u||d) ) {
 			if (y>b.y) {
 				vy = abs(vy);
 			}
@@ -36,7 +36,12 @@ public:
 			}
 		}
 		else {
-			vx *= -1;
+			if (x>b.x) {
+				vx = abs(vx);
+			}
+			else {
+				vx = abs(vx)*-1;
+			}
 		}
 		//cout << "bounce" << endl;
 	} //call this if the monkey colides with b
