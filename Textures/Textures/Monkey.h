@@ -22,16 +22,23 @@ public:
 	} //each gme tick, call this to run the physics on the monkey ball
 	
 	void bounce(TexRect& b) {
-		if (this->y < b.y) {
-			vy = abs(vy)*-1;
-		}else if (this->y > b.y) {
-			vy = abs(vy);
-		}else if (this->x<b.x) {
-			vx = abs(vx);
-		}else if (this->x>b.x) {
-			vx = abs(vx)*-1;
+		bool l = x<b.x+b.w && x>b.x;
+		bool r = x+w>b.x && x+w<b.x+b.w;
+		bool u = y>b.y-b.h && y<b.y;
+		bool d = y-h<b.y && y-h > b.y-b.h;
+
+		if ((y>b.y||y-h<b.y-b.h) && (u||d)) {
+			if (y>b.y) {
+				vy = abs(vy);
+			}
+			else {
+				vy = abs(vy)*-1;
+			}
 		}
-		cout << "bounce" << endl;
+		else {
+			vx *= -1;
+		}
+		//cout << "bounce" << endl;
 	} //call this if the monkey colides with b
 };
 

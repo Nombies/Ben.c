@@ -68,7 +68,7 @@ public:
 	}
 
 	virtual int contains(TexRect b) {
-		return x < b.x + b.w && b.x + b.w > x &&
+		return x < b.x + b.w && x + w > b.x &&
 			y > b.y - b.h && y - h < b.y;
 	}
 
