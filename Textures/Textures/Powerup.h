@@ -32,4 +32,18 @@ void powerUps(App &b) {
 	}
 } */
 
+/*bool Random(GLuint chance) {
+	GLuint random = rand() % chance;
+	return random == 0;
+}
+
+void powerUps(App &b) {
+	if (Random(20)) {
+		Trampoline(xx, yy, ww, hh, texture);
+
+
+
+	}
+} */
+
 #endif // !pwrup
