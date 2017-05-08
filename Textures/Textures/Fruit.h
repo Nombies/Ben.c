@@ -6,6 +6,7 @@ class Fruit : public TexRect
 {
 public:
 	Powerup* p;
+	bool markdel = 0;
 	Fruit(float x, float y, float w, float h, float vX, float vY, GLuint& texture, Powerup* P) : TexRect(x, y, w, h, texture) {
 		p = P;
 	}

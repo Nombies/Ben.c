@@ -8,6 +8,7 @@
 
 using namespace std;
 
+int lives = 3;
 TexRect* background;
 Monkey* monkey;
 Trampoline* trampoline;
@@ -98,6 +99,12 @@ void App::idle() {
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		if (monkey->contains(*(TexRect*)(*i))) {
 			monkey->bounce(**i);
+			((Fruit*)(*i))->markdel = 1;
+		}
+	}
+	for (int i = 0; i < fruits.size();i++) {
+		if (((Fruit*)fruits[i])->markdel){
+			fruits.erase(fruits.begin()+i);
 		}
 	}
 	if (monkey->contains(*trampoline) ){
@@ -172,7 +179,7 @@ void App::mouseDown(float x, float y){
     my = y;
     
     // Redraw the scene
-    redraw();
+    //redraw();
 }
 
 void App::mouseDrag(float x, float y){
@@ -181,7 +188,7 @@ void App::mouseDrag(float x, float y){
     my = y;
     
     // Redraw the scene
-    redraw();
+    //redraw();
 }
 
 void App::keyPress(unsigned char key) {
