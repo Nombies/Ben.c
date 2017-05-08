@@ -26,6 +26,7 @@ public:
 	float w;
 	float h;
 	GLuint texture;
+	bool markdel = 0;
     TexRect (float x, float y, float w, float h,GLuint& tex){
         this->x = x;
         this->y = y;

@@ -1,6 +1,7 @@
 #ifndef PWRUP_H
 #define PWRUP_H 
 
+class App;
 #include <stdio.h>
 #include "TexRect.hpp"
 #include "App.h"
@@ -17,8 +18,14 @@ public:
 		powerup = p;
 	}
 
-	void update(); //each gme tick, call this to run the physics
-	void collect(); //call this if the trampoline colides with this
+	void update() {
+		x += vx;
+		y += vy;
+	} //each gme tick, call this to run the physics
+	void collect(App& b) {
+		powerup(b);
+	} //call this if the trampoline colides with this
+
 };
 
 /*boolean Random(GLuint chance) {

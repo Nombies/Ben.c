@@ -1,25 +1,12 @@
 #include "App.h"
-#include "Monkey.h"
 #include "Powerup.h"
-#include "Trampoline.h"
-#include "Fruit.h"
-#include <string>
-#include <cmath>
+
 
 using namespace std;
 
-bool play = true;
-int score = 0;
-int lives = 3;
-TexRect* background;
-Monkey* monkey;
-Trampoline* trampoline;
-GLuint fruitTex[5];
-vector<TexRect*> fruits;
-static int submenu_id;
-static int window;
-static int value = 0;
-static int menu_id;
+void examplePowerup(App& b){
+	b.monkey->vy *= 2;
+}
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
@@ -109,11 +96,26 @@ void App::idle() {
 				((Fruit*)(*i))->markdel = 1;
 				((Fruit*)(*i))->hit();
 				score += 100;
+				
+				powerups.push_back(new Powerup((*i)->x, (*i)->y,0.23,0.2,0,-0.001, (*i)->texture,examplePowerup));
+
 				break;
 			}
 		}
+		for (vector<Powerup*>::iterator i = powerups.begin(); i != powerups.end(); i++) {
+			(*i)->update();
+			if (trampoline->contains(*(TexRect*)(*i))) {
+				(*i)->collect(*this);
+				(*i)->markdel = 1;
+			}
+		}
+		for (int i = 0; i < powerups.size(); i++) {
+			if (powerups[i]->markdel) {
+				powerups.erase(powerups.begin() + i);
+			}
+		}
 		for (int i = 0; i < fruits.size(); i++) {
-			if (((Fruit*)fruits[i])->markdel) {
+			if (fruits[i]->markdel) {
 				fruits.erase(fruits.begin() + i);
 			}
 		}
@@ -153,6 +155,9 @@ void App::draw() {
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		(*i)->draw();
 	}
+	for (vector<Powerup*>::iterator i = powerups.begin(); i != powerups.end(); i++) {
+		(*i)->draw();
+	}
 	monkey->draw();
 	trampoline->draw();
 	background->draw();
@@ -185,63 +190,6 @@ void App::specialKeyPress(int key) {
 	//glutPostRedisplay();
 }
 
-void menu(int num) {
-	if (num == 0) {
-		//glutDestroyWindow(window);
-		exit(0);
-	}
-	else {
-		value = num;
-	}
-	glutPostRedisplay();
-}
-void createMenu(void) {
-	submenu_id = glutCreateMenu(menu);
-	glutAddMenuEntry("PowerUp", 2);
-	glutAddMenuEntry("PowerDown", 3);
-	glutAddMenuEntry("Reset", 4);
-	glutAddMenuEntry("Other", 5);     menu_id = glutCreateMenu(menu);
-	glutAddMenuEntry("Clear", 1);
-	glutAddSubMenu("Control", submenu_id);
-	glutAddMenuEntry("Quit", 0);     glutAttachMenu(GLUT_RIGHT_BUTTON);
-}
-void display(void) {
-	glClear(GL_COLOR_BUFFER_BIT);   if (value == 1) {
-		return; //glutPostRedisplay();
-	}
-	else if (value == 2) {
-		//glPushMatrix();
-		// glColor3d(1.0, 0.0, 0.0);
-		// glutWireSphere(0.5, 50, 50);
-		// glPopMatrix();
-		cout << "PowerUp " << endl;
-		monkey->vy = monkey->vy*2.0;
-	}
-	else if (value == 3) {
-		//glPushMatrix();
-		//glColor3d(0.0, 1.0, 0.0);
-		//glRotated(65, -1.0, 0.0, 0.0);
-		//glutWireCone(0.5, 1.0, 50, 50);
-		//glPopMatrix();
-		cout << "PowerDown " << endl;
-		monkey->vy = monkey->vy * 0.5;
-	}
-	else if (value == 4) {
-		//glPushMatrix();
-		//glColor3d(0.0, 0.0, 1.0);
-		//glutWireTorus(0.3,0.6,100,100);
-		//glPopMatrix();
-		cout << "Reset " << endl;
-	}
-	else if (value == 5) {
-		//glPushMatrix();
-		//glColor3d(1.0, 0.0, 1.0);
-		//glutSolidTeapot(0.5);
-		//glPopMatrix();
-		cout << "Other " << endl;
-	}
-	glFlush();
-}
 
 
 void App::mouseDown(float x, float y){
