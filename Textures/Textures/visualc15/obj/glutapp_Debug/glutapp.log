@@ -1,12 +1,26 @@
-﻿  App.cpp
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(18): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(19): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(21): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(45): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(46): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(145): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(148): warning C4305: '+=': truncation from 'double' to 'float'
-  glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
-  glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
+﻿Build started 5/8/2017 1:09:25 PM.
+     1>Project "F:\Ben.c\Textures\Textures\visualc15\glutapp.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         F:\MSVS\VC\bin\CL.exe /c /I../ /I../freeglut /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _MBCS /Gm- /EHsc /RTC1 /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"obj\glutapp_Debug\\" /Fd"obj\glutapp_Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt ..\App.cpp
+         App.cpp
+     1>f:\ben.c\textures\textures\app.cpp(19): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(20): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(21): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(22): warning C4305: '=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(52): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(53): warning C4305: 'argument': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(64): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+     1>f:\ben.c\textures\textures\app.cpp(153): warning C4305: '-=': truncation from 'double' to 'float'
+     1>f:\ben.c\textures\textures\app.cpp(156): warning C4305: '+=': truncation from 'double' to 'float'
+       Link:
+         F:\MSVS\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"obj\glutapp_Debug\glutapp.exe" /NOLOGO ../freeglut/freeglut.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"obj\glutapp_Debug\glutapp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"obj\glutapp_Debug\glutapp.lib" /MACHINE:X86 /SAFESEH obj\glutapp_Debug\App.obj
+         obj\glutapp_Debug\app_main.obj
+         obj\glutapp_Debug\GlutApp.obj
+         obj\glutapp_Debug\RgbImage.obj
+         obj\glutapp_Debug\TexRect.obj
+         glutapp.vcxproj -> F:\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
+     1>Done Building Project "F:\Ben.c\Textures\Textures\visualc15\glutapp.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.81

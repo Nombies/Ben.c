@@ -11,6 +11,7 @@ using namespace std;
 TexRect* background;
 Monkey* monkey;
 Trampoline* trampoline;
+GLuint fruitTex[5];
 vector<TexRect*> fruits;
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
@@ -41,8 +42,14 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	GLuint blackberryTexture = loadTexture("blackberry.bmp");
 	#endif
 
+	fruitTex[0] = strawberryTexture;
+	fruitTex[1] = watermelonTexture;
+	fruitTex[2] = rasberryTexture;
+	fruitTex[3] = appleTexture;
+	fruitTex[4] = blackberryTexture;
+
 	background = new TexRect(-1,1,2,2,backgroundTexture);
-	monkey = new Monkey(-1,0.5,.2,.2, 0.0005,0,monkeyTexture);
+	monkey = new Monkey(0,-0.5,.2,.2, 0.005, 0.005,monkeyTexture);
 	trampoline = new Trampoline(mx,my,0.3,0.05,trampolineTexture);
 	/*
 	fruits.push_back(new Fruit((-.5 + 0.25 * 0), 0.5, 0.2, 0.2, 0, 0, strawberryTexture, NULL));
@@ -52,8 +59,9 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	fruits.push_back(new Fruit((-.5 + 0.25 * 4), 0.5, 0.2, 0.2, 0, 0, blackberryTexture, NULL));
 	*/
 
-	for (int i = 0; i < 5;i++) {
-		fruits.push_back(new Fruit((-.5+0.25*i),0.5,0.25,0.25,0,0,appleTexture,NULL));
+	for (int i = 0; i < 8;i++) {
+		for (int j = 0; j < 4;j++)
+		fruits.push_back(new Fruit((-1+0.25*i),1-0.25*j,0.25,0.25,0,0,fruitTex[rand()%5],NULL));
 	}
 
 }
