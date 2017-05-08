@@ -42,8 +42,8 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	#endif
 
 	background = new TexRect(-1,1,2,2,backgroundTexture);
-	monkey = new Monkey(0,-0.5,.2,.2, 0.0001,0.0005,monkeyTexture);
-	trampoline = new Trampoline(mx,my,0.3,0.05,monkeyTexture);
+	monkey = new Monkey(-1,0.5,.2,.2, 0.0005,0,monkeyTexture);
+	trampoline = new Trampoline(mx,my,0.3,0.05,trampolineTexture);
 	/*
 	fruits.push_back(new Fruit((-.5 + 0.25 * 0), 0.5, 0.2, 0.2, 0, 0, strawberryTexture, NULL));
 	fruits.push_back(new Fruit((-.5 + 0.25 * 1), 0.5, 0.2, 0.2, 0, 0, watermelonTexture, NULL));
