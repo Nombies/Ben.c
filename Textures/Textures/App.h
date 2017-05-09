@@ -19,6 +19,7 @@ class App: public GlutApp {
 	float height;
 public:
 
+	char* c;
 	bool play = true;
 	int score = 0;
 	int lives = 3;

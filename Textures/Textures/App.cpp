@@ -43,7 +43,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	fruitTex[4] = blackberryTexture;
 
 	background = new TexRect(-1,1,2,2,backgroundTexture);
-	monkey = new Monkey(0,-0.5,.2,.2, 0.005, 0.005,monkeyTexture);
+	monkey = new Monkey(0,-0.5,.2,.2, 0.0005, 0.0005,monkeyTexture);
 	trampoline = new Trampoline(mx,my,0.3,0.05,trampolineTexture);
 	/*
 	fruits.push_back(new Fruit((-.5 + 0.25 * 0), 0.5, 0.2, 0.2, 0, 0, strawberryTexture, NULL));
@@ -131,6 +131,13 @@ void App::idle() {
 		else if (monkey->y > 1) {
 			monkey->vy = abs(monkey->vy)*-1;
 		}
+		else if(monkey->y<-1) {
+			lives--;
+			Monkey* tmp = monkey;
+			monkey = new Monkey(0, -0.5, .2, .2, 0.005, 0.005, monkey->texture);
+			delete tmp;
+			play = 0;
+		}
 	}
 
 	draw();
@@ -151,6 +158,11 @@ void App::draw() {
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
     
+	glRasterPos2i(0, 0);
+	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
+	c = "text to render";
+	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char*)c);
+	glColor3d(1.0, 1.0, 1.0);
 
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		(*i)->draw();
