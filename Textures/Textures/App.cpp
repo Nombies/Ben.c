@@ -275,7 +275,7 @@ void App::mouseDrag(float x, float y){
 void App::keyPress(unsigned char key) {
     if (key == 27){
         // Exit the app when Esc key is pressed
-        exit(0);
+        exit(0); 
 	}if (key == 'p') {
 		play = !play;
 	}
