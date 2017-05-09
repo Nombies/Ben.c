@@ -33,6 +33,8 @@ public:
 	GLuint fruitTex[5];
 	vector<TexRect*> fruits;
 	vector<Powerup*> powerups;
+	typedef void(*FunctionPointer)(App& b);
+	FunctionPointer Function[3];
 
 
     // Constructor, to initialize state

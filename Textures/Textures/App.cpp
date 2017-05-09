@@ -5,9 +5,17 @@
 using namespace std;
 
 
-void examplePowerup(App& b){
-	b.monkey->vy *= 1;
+void examplePowerup(App& b) {
+	b.monkey->vy *= 1.5;
 }
+
+void examplePowerDown(App& b) {
+	b.monkey->vy /= 1.5;
+}
+void examplePadleInc(App& b) {
+	b.trampoline->w *= 2;
+}
+
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
@@ -16,6 +24,11 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	width = 0.3;
 	height = 0.05;
     
+	Function[0] = examplePowerDown;
+	Function[1] = examplePowerDown;
+	Function[2] = examplePadleInc;
+
+
 	#if defined WIN32
 	GLuint monkeyTexture = loadTexture("..//Ape.bmp");
 	GLuint trampolineTexture = loadTexture("..//trampoline_1.bmp");
@@ -90,12 +103,12 @@ GLuint App::loadTexture(const char *filename) {
 void App::idle() {
 	if (play) {
 		
-		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.001)
+		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.05)
 			if (mx>(trampoline->x + trampoline->w / 2)) {
-				trampoline->moveTo(trampoline->x + 0.001, -0.9);
+				trampoline->moveTo(trampoline->x + 0.05, -0.9);
 			}
 			else {
-				trampoline->moveTo(trampoline->x - 0.001, -0.9);
+				trampoline->moveTo(trampoline->x - 0.05, -0.9);
 			}
 
 		monkey->update();
@@ -106,7 +119,11 @@ void App::idle() {
 				((Fruit*)(*i))->hit();
 				score += 100;
 				cout << "Score: " << score << endl;
-				powerups.push_back(new Powerup((*i)->x, (*i)->y,0.23,0.2,0,-0.001, (*i)->texture,examplePowerup));
+				if (rand() % 100 > 40)
+				{
+					powerups.push_back(new Powerup((*i)->x, (*i)->y, 0.23, 0.2, 0, -0.001, (*i)->texture, Function[rand() % 3]));
+				}
+
 
 				break;
 			}
@@ -130,7 +147,7 @@ void App::idle() {
 		}
 		if (monkey->contains(*trampoline)) {
 			monkey->bounce(*trampoline);
-			monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))*0.005;
+			//monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))*0.005;
 		}
 		else if (monkey->x<-1) {
 			monkey->vx = abs(monkey->vx);
@@ -150,7 +167,7 @@ void App::idle() {
 			delete tmp;
 			play = 0;
 		}
-		monkey->vy = fmod(monkey->vy, 0.001);
+		//monkey->vy = fmod(monkey->vy, 0.001);
 
 		if (fruits.size() == 0 && monkey->contains(*trampoline)) {
 			for (int i = 0; i < 8; i++) {
