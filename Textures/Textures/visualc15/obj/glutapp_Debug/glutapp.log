@@ -10,9 +10,10 @@ c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(100): 
 c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(112): warning C4018: '<': signed/unsigned mismatch
 c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(117): warning C4018: '<': signed/unsigned mismatch
 c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(139): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(154): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(147): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(162): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(221): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(224): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(230): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\authorized user\documents\github\ben.c\textures\textures\app.cpp(233): warning C4305: '+=': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\Authorized User\Documents\GitHub\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)

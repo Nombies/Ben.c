@@ -136,10 +136,18 @@ void App::idle() {
 			cout << "Out of Bounds!" << endl;
 			cout << "Lives left: " << lives << endl;
 			Monkey* tmp = monkey;
-			monkey = new Monkey(0, -0.5, .2, .2, 0.005, 0.005, monkey->texture);
+			monkey = new Monkey(0, -0.5, .2, .2, 0.0005, 0.0005, monkey->texture);
 			delete tmp;
 			play = 0;
 		}
+
+		if (fruits.size() == 0 && monkey->contains(*trampoline)) {
+			for (int i = 0; i < 8; i++) {
+				for (int j = 0; j < 4; j++)
+					fruits.push_back(new Fruit((-1 + 0.25*i), 1 - 0.25*j, 0.25, 0.25, 0, 0, fruitTex[rand() % 5], NULL));
+			}
+		}
+
 		if (lives == 0) {
 			cout << "Game Over!" << endl;
 			cout << "Your Score: " << score << endl;
@@ -168,6 +176,7 @@ void App::idle() {
 				file_writer << str;
 				file_writer.close();
 			}
+			cout << "press esc to exit" << endl;
 			play = 0;
 		}
 	}
