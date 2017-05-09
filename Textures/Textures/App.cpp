@@ -1,5 +1,6 @@
 #include "App.h"
 #include "Powerup.h"
+#include <time.h>
 
 
 using namespace std;
@@ -10,15 +11,16 @@ void examplePowerup(App& b) {
 }
 
 void examplePowerDown(App& b) {
-	b.monkey->vy /= 1.5;
+	b.trampoline->w = 0.15;
 }
 void examplePadleInc(App& b) {
-	b.trampoline->w *= 2;
+	b.trampoline->w = 0.6;
 }
 
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
+	srand(time(NULL));
 	mx = -0.1;
 	my = -0.9;
 	width = 0.3;
@@ -57,7 +59,7 @@ App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w,
 	fruitTex[4] = blackberryTexture;
 
 	background = new TexRect(-1,1,2,2,backgroundTexture);
-	monkey = new Monkey(0,-0.5,.2,.2, 0.0005, 0.0005,monkeyTexture);
+	monkey = new Monkey(0,-0.5,.2,.2, 0.001, 0.001,monkeyTexture);
 	trampoline = new Trampoline(mx,my,0.3,0.05,trampolineTexture);
 	/*
 	fruits.push_back(new Fruit((-.5 + 0.25 * 0), 0.5, 0.2, 0.2, 0, 0, strawberryTexture, NULL));
@@ -103,12 +105,12 @@ GLuint App::loadTexture(const char *filename) {
 void App::idle() {
 	if (play) {
 		
-		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.05)
+		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.005)
 			if (mx>(trampoline->x + trampoline->w / 2)) {
-				trampoline->moveTo(trampoline->x + 0.05, -0.9);
+				trampoline->moveTo(trampoline->x + 0.005, -0.9);
 			}
 			else {
-				trampoline->moveTo(trampoline->x - 0.05, -0.9);
+				trampoline->moveTo(trampoline->x - 0.005, -0.9);
 			}
 
 		monkey->update();
@@ -119,7 +121,7 @@ void App::idle() {
 				((Fruit*)(*i))->hit();
 				score += 100;
 				cout << "Score: " << score << endl;
-				if (rand() % 100 > 40)
+				if (rand() % 100 > 80)
 				{
 					powerups.push_back(new Powerup((*i)->x, (*i)->y, 0.23, 0.2, 0, -0.001, (*i)->texture, Function[rand() % 3]));
 				}
@@ -147,7 +149,7 @@ void App::idle() {
 		}
 		if (monkey->contains(*trampoline)) {
 			monkey->bounce(*trampoline);
-			//monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))*0.005;
+			monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))/trampoline->w *0.0005;
 		}
 		else if (monkey->x<-1) {
 			monkey->vx = abs(monkey->vx);
