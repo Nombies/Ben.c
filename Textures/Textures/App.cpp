@@ -96,7 +96,7 @@ void App::idle() {
 				((Fruit*)(*i))->markdel = 1;
 				((Fruit*)(*i))->hit();
 				score += 100;
-				
+				cout << "Score: " << score << endl;
 				powerups.push_back(new Powerup((*i)->x, (*i)->y,0.23,0.2,0,-0.001, (*i)->texture,examplePowerup));
 
 				break;
