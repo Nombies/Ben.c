@@ -133,9 +133,41 @@ void App::idle() {
 		}
 		else if(monkey->y<-1) {
 			lives--;
+			cout << "Out of Bounds!" << endl;
+			cout << "Lives left: " << lives << endl;
 			Monkey* tmp = monkey;
 			monkey = new Monkey(0, -0.5, .2, .2, 0.005, 0.005, monkey->texture);
 			delete tmp;
+			play = 0;
+		}
+		if (lives == 0) {
+			cout << "Game Over!" << endl;
+			cout << "Your Score: " << score << endl;
+
+			file_reader.open("../score.txt");
+
+			if (file_reader.is_open()) {
+				string line;
+				char* temp;
+				getline(file_reader, line);
+				temp = new char[line.size() + 1];
+				strcpy(temp, line.c_str());
+				high_score = atoi(temp);
+				file_reader.close();
+			}
+
+			file_writer.open("../score.txt");
+
+			if (score > high_score) {
+				cout << "New High Score: " << score << endl;
+				high_score = score;
+			}
+			cout << "High Score: " << high_score << endl;
+			if (file_writer.is_open()) {
+				string str = to_string(high_score);
+				file_writer << str;
+				file_writer.close();
+			}
 			play = 0;
 		}
 	}
@@ -161,7 +193,7 @@ void App::draw() {
 	glRasterPos2i(0, 0);
 	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
 	c = "text to render";
-	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char*)c);
+	glutBitmapString(GLUT_BITMAP_8_BY_13, (const unsigned char*)c);
 	glColor3d(1.0, 1.0, 1.0);
 
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {

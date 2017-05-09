@@ -9,6 +9,7 @@
 #include "Trampoline.h"
 #include "Fruit.h"
 #include <string>
+#include <fstream>
 #include <cmath>
 
 class App: public GlutApp {
@@ -20,8 +21,11 @@ class App: public GlutApp {
 public:
 
 	char* c;
-	bool play = true;
+	bool play = false;
+	ifstream file_reader;
+	ofstream file_writer;
 	int score = 0;
+	int high_score = 0;
 	int lives = 3;
 	TexRect* background;
 	Monkey* monkey;
