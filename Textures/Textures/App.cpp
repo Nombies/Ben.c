@@ -88,7 +88,15 @@ GLuint App::loadTexture(const char *filename) {
 
 void App::idle() {
 	if (play) {
-		trampoline->moveTo(mx, my);
+		
+		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.01)
+			if (mx>(trampoline->x + trampoline->w / 2)) {
+				trampoline->moveTo(trampoline->x + 0.01, -0.9);
+			}
+			else {
+				trampoline->moveTo(trampoline->x - 0.01, -0.9);
+			}
+
 		monkey->update();
 		for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 			if (monkey->contains(*(TexRect*)(*i))) {
@@ -268,8 +276,6 @@ void App::keyPress(unsigned char key) {
         // Exit the app when Esc key is pressed
         exit(0);
     }if (key == 'p') {
-		cout << "paused" << endl;
 		play = !play;
 	}
-	cout << key << endl;
 }
