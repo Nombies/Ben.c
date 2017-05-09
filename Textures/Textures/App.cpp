@@ -198,13 +198,13 @@ void App::draw() {
     
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
-    
+/*  
 	glRasterPos2i(0, 0);
 	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
 	c = "text to render";
 	glutBitmapString(GLUT_BITMAP_8_BY_13, (const unsigned char*)c);
 	glColor3d(1.0, 1.0, 1.0);
-
+*/
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		(*i)->draw();
 	}

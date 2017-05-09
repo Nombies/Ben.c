@@ -20,7 +20,7 @@ class App: public GlutApp {
 	float height;
 public:
 
-	char* c;
+	//char* c;
 	bool play = false;
 	ifstream file_reader;
 	ofstream file_writer;
