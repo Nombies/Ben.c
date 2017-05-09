@@ -6,7 +6,7 @@ using namespace std;
 
 
 void examplePowerup(App& b){
-	b.monkey->vy *= 2;
+	b.monkey->vy *= 1;
 }
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
@@ -90,12 +90,12 @@ GLuint App::loadTexture(const char *filename) {
 void App::idle() {
 	if (play) {
 		
-		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.01)
+		if (abs((trampoline->x + trampoline->w / 2) - mx)>0.001)
 			if (mx>(trampoline->x + trampoline->w / 2)) {
-				trampoline->moveTo(trampoline->x + 0.01, -0.9);
+				trampoline->moveTo(trampoline->x + 0.001, -0.9);
 			}
 			else {
-				trampoline->moveTo(trampoline->x - 0.01, -0.9);
+				trampoline->moveTo(trampoline->x - 0.001, -0.9);
 			}
 
 		monkey->update();
@@ -130,6 +130,7 @@ void App::idle() {
 		}
 		if (monkey->contains(*trampoline)) {
 			monkey->bounce(*trampoline);
+			monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))*0.005;
 		}
 		else if (monkey->x<-1) {
 			monkey->vx = abs(monkey->vx);
@@ -149,6 +150,7 @@ void App::idle() {
 			delete tmp;
 			play = 0;
 		}
+		monkey->vy = fmod(monkey->vy, 0.001);
 
 		if (fruits.size() == 0 && monkey->contains(*trampoline)) {
 			for (int i = 0; i < 8; i++) {
