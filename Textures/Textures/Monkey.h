@@ -40,8 +40,6 @@ public:
 		bool lc = b.contains(*l);
 		bool rc = b.contains(*r);
 
-		cout << uc<<" "<<dc<<" "<<lc<<" "<<rc<<endl;
-
 		if (uc &!dc) {
 			vy = -1 * abs(vy);
 		}
