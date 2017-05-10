@@ -34,7 +34,7 @@ public:
 	vector<TexRect*> fruits;
 	vector<Powerup*> powerups;
 	typedef void(*FunctionPointer)(App& b);
-	FunctionPointer Function[3];
+	FunctionPointer Function[4];
 
 
     // Constructor, to initialize state

@@ -1,13 +1,15 @@
 #include "App.h"
 #include "Powerup.h"
 #include <time.h>
-
+#include <cstdlib>
+#include <string>
 
 using namespace std;
 
 
 void examplePowerup(App& b) {
-	b.monkey->vy *= 1.5;
+	b.monkey->vy *= 2;
+	cout << "Speeding up!" << endl;
 }
 
 void examplePowerDown(App& b) {
@@ -17,19 +19,25 @@ void examplePadleInc(App& b) {
 	b.trampoline->w = 0.6;
 }
 
+void oneUp(App& b) {
+	b.lives++;
+	cout << "1 UP!" <<" You now have "<<b.lives<<" lives"<< endl;
+}
+
 
 App::App(const char* label, int x, int y, int w, int h): GlutApp(label, x, y, w, h){
     // Initialize state variables
+reset:
 	srand(time(NULL));
 	mx = -0.1;
 	my = -0.9;
 	width = 0.3;
 	height = 0.05;
     
-	Function[0] = examplePowerDown;
+	Function[0] = examplePowerup;
 	Function[1] = examplePowerDown;
 	Function[2] = examplePadleInc;
-
+	Function[3] = oneUp;
 
 	#if defined WIN32
 	GLuint monkeyTexture = loadTexture("..//Ape.bmp");
@@ -123,17 +131,20 @@ void App::idle() {
 				cout << "Score: " << score << endl;
 				if (rand() % 100 > 80)
 				{
-					powerups.push_back(new Powerup((*i)->x, (*i)->y, 0.23, 0.2, 0, -0.001, (*i)->texture, Function[rand() % 3]));
+					powerups.push_back(new Powerup((*i)->x, (*i)->y, 0.23, 0.2, 0, -0.001, (*i)->texture, Function[rand() % 4]));
 				}
 
 
-				break;
+				//break;
 			}
 		}
 		for (vector<Powerup*>::iterator i = powerups.begin(); i != powerups.end(); i++) {
 			(*i)->update();
 			if (trampoline->contains(*(TexRect*)(*i))) {
 				(*i)->collect(*this);
+				(*i)->markdel = 1;
+			}
+			else if ((*i)->y<-1.5) {
 				(*i)->markdel = 1;
 			}
 		}
@@ -150,6 +161,7 @@ void App::idle() {
 		if (monkey->contains(*trampoline)) {
 			monkey->bounce(*trampoline);
 			monkey->vx += ((monkey->x+monkey->w/2) - (trampoline->x+trampoline->w / 2))/trampoline->w *0.0005;
+			monkey->vy *= 1.01;
 		}
 		else if (monkey->x<-1) {
 			monkey->vx = abs(monkey->vx);
@@ -228,13 +240,14 @@ void App::draw() {
     
     // Set Color
     glColor3d(1.0, 1.0, 1.0);
-/*  
+/*
 	glRasterPos2i(0, 0);
 	glColor4f(0.0f, 0.0f, 1.0f, 1.0f);
-	c = "text to render";
-	glutBitmapString(GLUT_BITMAP_8_BY_13, (const unsigned char*)c);
+	const char* c = "Score";//to_string(lives).c_str();
+	cout << c << endl;
+	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (const unsigned char*)c);
 	glColor3d(1.0, 1.0, 1.0);
-*/
+	*/
 	for (vector<TexRect*>::iterator i = fruits.begin(); i != fruits.end(); i++) {
 		(*i)->draw();
 	}

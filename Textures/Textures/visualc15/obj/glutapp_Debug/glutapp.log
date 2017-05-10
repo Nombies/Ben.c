@@ -1,27 +1,29 @@
 ﻿  App.cpp
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(14): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(17): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(24): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(25): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(26): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(27): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(62): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(63): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(74): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(110): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(110): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(113): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(113): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(126): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(140): warning C4018: '<': signed/unsigned mismatch
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(145): warning C4018: '<': signed/unsigned mismatch
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(152): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(168): warning C4305: 'argument': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(177): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(192): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(16): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(19): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(31): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(32): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(33): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(34): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(35): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(70): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(71): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(82): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(30): warning C4102: 'reset': unreferenced label
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(118): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(118): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(121): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(121): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(134): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(151): warning C4018: '<': signed/unsigned mismatch
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(156): warning C4018: '<': signed/unsigned mismatch
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(163): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(164): warning C4305: '*=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(180): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(189): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(204): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(260): warning C4305: '-=': truncation from 'double' to 'float'
-c:\users\kraus\documents\ben.c\textures\textures\app.cpp(263): warning C4305: '+=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(273): warning C4305: '-=': truncation from 'double' to 'float'
+c:\users\kraus\documents\ben.c\textures\textures\app.cpp(276): warning C4305: '+=': truncation from 'double' to 'float'
   glutapp.vcxproj -> C:\Users\kraus\Documents\Ben.c\Textures\Textures\visualc15\obj\glutapp_Debug\glutapp.exe
   glutapp.vcxproj -> obj\glutapp_Debug\glutapp.pdb (Full PDB)
